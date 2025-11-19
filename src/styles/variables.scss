@@ -6,15 +6,15 @@ $text-secondary: #666666;
 $border-color: #e0e0e0;
 
 // Status Colors
-$status-rejected: #dc3545;      // נדחתה - red
-$status-expiring: #ff9800;       // מסתיים - orange
-$status-info-required: #212121;  // נדרש מידע - black
-$status-suspended: #ffc107;      // מושהה - yellow
-$status-dosage-change: #e91e63;  // שינוי מינון - pink
-$status-extension: #2196f3;      // הארכת תוקף - light blue
-$status-approved: #4caf50;       // אושרה - green
-$status-in-treatment: #2196f3;   // בטיפול - blue
-$status-active: #4caf50;         // פעיל - green
+$status-rejected: red;
+$status-expiring: orange;
+$status-info-required: #b5b2b2;
+$status-suspended: gold;
+$status-dosage-change: pink;
+$status-extension: lightblue;
+$status-approved: rgb(54, 179, 54);
+$status-in-treatment: #2196f3;
+$status-active: rgb(54, 179, 54);
 
 // Button Colors
 $button-primary: #2196f3;

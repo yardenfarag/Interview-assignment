@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import PageHeader from './components/PageHeader';
 import Dashboard from './pages/Dashboard';
+import SideNav from './components/SideNav';
+import { dummyLoggedInUser } from './data/personnel';
+import styles from './App.module.scss';
 
 function App() {
-  // Get current date and time in Hebrew format
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  // date and time formatting
   const now = new Date();
   const dateStr = now.toLocaleDateString('he-IL', { 
     day: '2-digit', 
@@ -16,20 +22,24 @@ function App() {
   const currentDateTime = `${dateStr} | ${timeStr}`;
 
   const handleLogout = () => {
-    // Logout handler - can be implemented later
     console.log('Logout clicked');
   };
 
+  const handleNavToggle = (isOpen: boolean) => {
+    setIsNavOpen(isOpen);
+  };
+
   return (
-    <>
+    <div className={`${styles['app-wrapper']} ${isNavOpen ? styles['nav-open'] : ''}`}>
       <PageHeader
-        username="פרופ' רוית גבע"
-        role="רופא"
+        username={dummyLoggedInUser.name}
+        role={dummyLoggedInUser.role}
         currentDateTime={currentDateTime}
         onLogout={handleLogout}
       />
       <Dashboard />
-    </>
+      <SideNav onLogout={handleLogout} onToggle={handleNavToggle} />
+    </div>
   );
 }
 

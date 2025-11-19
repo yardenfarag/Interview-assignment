@@ -1,0 +1,112 @@
+@use '../../styles/variables.scss' as *;
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  padding: $spacing-xs $spacing-md;
+  border: none;
+  border-radius: $radius-sm;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+  min-width: 5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: $white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  .arrow {
+    font-size: 0.7rem;
+    opacity: 0.8;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + $spacing-xs);
+  right: 0;
+  z-index: 999;
+  background-color: $white;
+  border-radius: $radius-sm;
+  border: 1px solid $border-color;
+  min-width: 6rem;
+  overflow: hidden;
+  height: 10rem;
+  overflow-y: auto;
+}
+
+.dropdown-option {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  background-color: $white;
+  color: $text-primary;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: right;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba($button-primary, 0.1);
+  }
+
+  &.selected {
+    background-color: rgba($button-primary, 0.15);
+  }
+}
+
+// Status color classes (same as Dashboard)
+.status-rejected {
+  background-color: $status-rejected;
+}
+
+.status-expiring {
+  background-color: $status-expiring;
+}
+
+.status-extension {
+  background-color: $status-extension;
+}
+
+.status-dosage-change {
+  background-color: $status-dosage-change;
+}
+
+.status-suspended {
+  background-color: $status-suspended;
+  color: $text-primary;
+}
+
+.status-info-required {
+  background-color: $status-info-required;
+}
+
+.status-approved {
+  background-color: $status-approved;
+}
+
+.status-in-treatment {
+  background-color: $status-in-treatment;
+}
+

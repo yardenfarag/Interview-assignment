@@ -3,11 +3,19 @@
 .dashboard {
   width: 100%;
   min-height: 100vh;
-  background-color: $background;
+  background-color: $white;
 
   .content {
-    padding: $spacing-lg;
+    padding: $spacing-lg 0;
     max-width: 100%;
+
+    .contentcontainer {
+      background-color: $white;
+      border-radius: $radius-md;
+      border: 1px solid $border-color;
+      padding: $spacing-lg;
+      box-shadow: 0 0 2px 0 $button-primary;
+    }
 
     .buttons-section {
       display: flex;

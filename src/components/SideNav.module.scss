@@ -1,0 +1,89 @@
+@use '../styles/variables.scss' as *;
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 100vh;
+  background-color: $white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &.open {
+    width: 280px;
+
+    .nav-header {
+      opacity: 1;
+    }
+
+    .nav-item {
+      span {
+        opacity: 1;
+      }
+    }
+  }
+
+  .nav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: $spacing-lg;
+    width: 280px;
+  }
+
+  .toggle-button {
+    background-color: $button-primary;
+    color: $white;
+    border: none;
+    border-radius: $radius-sm;
+    transition: all 0.3s ease;
+    margin-bottom: $spacing-xl;
+    align-self: flex-start;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $button-primary-hover;
+    }
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    flex: 1;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    background: none;
+    border: none;
+    border-radius: $radius-md;
+    cursor: pointer;
+    text-align: right;
+    font-size: 1rem;
+    color: $text-primary;
+    transition: all 0.2s ease;
+    justify-content: flex-start;
+    min-width: fit-content;
+
+    &:hover {
+      background-color: $button-secondary;
+    }
+
+    span {
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s ease 0.1s;
+      overflow: hidden;
+    }
+  }
+}
+

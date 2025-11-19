@@ -5,6 +5,8 @@
   overflow-x: auto;
   background-color: $white;
   border-radius: $radius-md;
+  border: 1px solid $border-color;
+  overflow: hidden;
 
   .table {
     width: 100%;
@@ -24,15 +26,15 @@
       border-bottom: 0.0625rem solid $border-color;
       transition: background-color 0.2s;
 
-      &:hover {
-        background-color: rgba($button-primary, 0.05);
-      }
-
+      
       &:last-child {
         border-bottom: none;
       }
       &:nth-child(odd) {
         background-color: rgba($text-secondary, 0.05);
+      }
+      &:hover {
+        background-color: rgba($button-primary, 0.05);
       }
 
       .table-cell {

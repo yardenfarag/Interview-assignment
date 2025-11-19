@@ -4,9 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-md $spacing-lg;
+  padding: $spacing-sm $spacing-md;
+  margin-top: 1rem;
   background-color: $white;
+  box-shadow: 0 0 2px 0 $border-color;
   width: 100%;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
   
   .header-left {
     display: flex;
@@ -28,7 +32,7 @@
       display: flex;
       align-items: center;
       gap: $spacing-sm;
-      padding: $spacing-sm $spacing-md;
+      // padding: $spacing-sm $spacing-md;
       background: transparent;
       border: none;
       font-size: 0.8rem;

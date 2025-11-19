@@ -1,24 +1,16 @@
-import { useMemo } from 'react';
 import Table from '../components/common/Table';
 import type { TableColumn } from '../components/common/Table';
 import Button from '../components/common/Button';
 import FilterChip from '../components/common/FilterChip';
+import StatusDropdown from '../components/common/StatusDropdown';
 import { patientRequests } from '../data/requests';
 import { getPersonnelName } from '../data/personnel';
+import { filterConfigs } from '../data/filters';
 import type { PatientRequest } from '../types/requests';
+import { getFilterCount } from '../utils/utils';
 import styles from './Dashboard.module.scss';
 
 export default function Dashboard() {
-  const filterCounts = useMemo(() => {
-    return {
-      extension: patientRequests.filter(r => r.status === 'הארכת תוקף').length,
-      dosageChange: patientRequests.filter(r => r.status === 'שינוי מינון').length,
-      suspended: patientRequests.filter(r => r.status === 'מושהה').length,
-      infoRequired: patientRequests.filter(r => r.status === 'נדרש מידע').length,
-      expiring: patientRequests.filter(r => r.status === 'מסתיים').length,
-      rejected: patientRequests.filter(r => r.status === 'נדחתה').length,
-    };
-  }, []);
   const columns: TableColumn<PatientRequest>[] = [
     {
       header: 'שם מטופל',
@@ -62,7 +54,15 @@ export default function Dashboard() {
     },
     {
       header: '💬',
-      value: (row) => row.notesCount ? '💬' : '🔄',
+      value: (row) => (
+        <span className={styles['icon-cell']}>
+          {row.notesCount > 0 ? (
+            <span className={styles['chat-icon-active']}>💬</span>
+          ) : (
+            <span className={styles['chat-icon-inactive']}>💬</span>
+          )}
+        </span>
+      ),
     },
     {
       header: 'רופא/ה אחראי/ת',
@@ -78,7 +78,15 @@ export default function Dashboard() {
     },
     {
       header: '✉',
-      value: (row) => row.unreadMessages ? '✉' : '🔄',
+      value: (row) => (
+        <span className={styles['icon-cell']}>
+          {row.unreadMessages > 0 ? (
+            <span className={styles['envelope-icon-active']}>✉</span>
+          ) : (
+            <span className={styles['envelope-icon-inactive']}>✉</span>
+          )}
+        </span>
+      ),
     },
     {
       header: 'עדכון סטטוס',
@@ -86,8 +94,15 @@ export default function Dashboard() {
     },
     {
       header: 'סטטוס בקשה',
-      key: 'status',
-      className: styles['status-cell'],
+      value: (row) => (
+        <StatusDropdown
+          value={row.status}
+          onChange={(newStatus) => {
+            // Handle status change - you can update the data here
+            console.log(`Changing status for ${row.id} to ${newStatus}`);
+          }}
+        />
+      ),
     },
   ];
 
@@ -103,49 +118,25 @@ export default function Dashboard() {
           </Button>
         </div>
 
+        <div className={styles.contentcontainer}>
+
         <div className={styles['filters-section']}>
           <div className={styles['section-title']}>מטופלים בעלי בקשה</div>
           <div className={styles['filters-chips']}>
-            <FilterChip
-              label="הארכת תוקף"
-              count={filterCounts.extension}
-              color="lightblue"
-              icon="📅"
-            />
-            <FilterChip
-              label="שינוי מינון"
-              count={filterCounts.dosageChange}
-              color="salmon"
-              icon="●"
-            />
-            <FilterChip
-              label="מושהה"
-              count={filterCounts.suspended}
-              color="gold"
-              icon="⏸"
-            />
-            <FilterChip
-              label="נדרש מידע"
-              count={filterCounts.infoRequired}
-              color="black"
-              icon="✉"
-            />
-            <FilterChip
-              label="מסתיים"
-              count={filterCounts.expiring}
-              color="orange"
-              icon="💊"
-            />
-            <FilterChip
-              label="נדחתה"
-              count={filterCounts.rejected}
-              color="red"
-              icon="🚫"
-            />
+            {filterConfigs.map((filter) => (
+              <FilterChip
+                key={filter.status}
+                label={filter.label}
+                count={getFilterCount(patientRequests, filter.status)}
+                color={filter.color}
+                icon={filter.icon}
+              />
+            ))}
           </div>
         </div>
 
         <Table columns={columns} data={patientRequests} />
+        </div>
       </div>
     </div>
   );
