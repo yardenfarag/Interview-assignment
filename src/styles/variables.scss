@@ -1,10 +1,9 @@
 // Color Variables
-$background-light: #f5f7fb;
+$background: #f5f7fb;
 $white: #ffffff;
-$text-primary: #1a1a1a;
+$text-primary: #000000;
 $text-secondary: #666666;
 $border-color: #e0e0e0;
-$shadow: rgba(0, 0, 0, 0.1);
 
 // Status Colors
 $status-rejected: #dc3545;      // נדחתה - red
@@ -36,8 +35,4 @@ $radius-sm: 0.25rem;
 $radius-md: 0.5rem;
 $radius-lg: 0.75rem;
 
-// Shadows
-$shadow-sm: 0 0.125rem 0.25rem $shadow;
-$shadow-md: 0 0.25rem 0.5rem $shadow;
-$shadow-lg: 0 0.5rem 1rem $shadow;
 

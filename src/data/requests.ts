@@ -1,6 +1,6 @@
-import { PatientRequest } from '../types/requests';
+import type { PatientRequest } from '../types/requests';
 
-// Dummy data matching the screenshot examples
+// dummy data for the table of requests
 export const patientRequests: PatientRequest[] = [
   {
     id: 'req-001',

@@ -1,0 +1,13 @@
+@use '../styles/variables.scss' as *;
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $background;
+}
+
+.content {
+  padding: $spacing-lg;
+  max-width: 100%;
+}
+
