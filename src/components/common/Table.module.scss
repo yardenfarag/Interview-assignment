@@ -21,10 +21,17 @@
       border-bottom: 1px solid $border-color;
       white-space: nowrap;
 
+      &.header-icon-only {
+        text-align: center;
+        
+        .header-content {
+          margin-inline-start: .5rem;
+          justify-content: center;
+        }
+      }
+
       .header-content {
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
         gap: $spacing-sm;
       }
 
@@ -41,7 +48,7 @@
     }
 
     .table-row {
-      border-bottom: 0.0625rem solid $border-color;
+      border-bottom: 1px solid $border-color;
       transition: background-color 0.2s;
 
       
@@ -57,9 +64,7 @@
 
       .table-cell {
         padding: $spacing-md;
-        text-align: right;
         color: $text-primary;
-        vertical-align: middle;
       }
     }
   }

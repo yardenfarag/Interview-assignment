@@ -8,7 +8,7 @@ import { getPersonnelName } from '../data/personnel';
 import { filterConfigs } from '../data/filters';
 import type { PatientRequest } from '../types/requests';
 import { getFilterCount } from '../utils/utils';
-import { ChatIcon, FilterIcon, MessageIcon } from '../components/Icons';
+import { ChatIcon, FilterIcon, MessageIcon, SortingIcon } from '../components/Icons';
 import styles from './Dashboard.module.scss';
 
 export default function Dashboard() {
@@ -36,6 +36,7 @@ export default function Dashboard() {
     {
       header: 'פתיחת בקשה',
       key: 'createdAt',
+      headerIcon: <SortingIcon />,
     },
     {
       header: 'מינון CATO',
@@ -56,6 +57,7 @@ export default function Dashboard() {
     {
       header: 'תוקף אישור תרופה',
       value: (row) => row.medication.expiry,
+      headerIcon: <SortingIcon />,
     },
     {
       header: '',
@@ -101,6 +103,7 @@ export default function Dashboard() {
     {
       header: 'עדכון סטטוס',
       value: (row) => row.statusUpdatedAt,
+      headerIcon: <SortingIcon />,
     },
     {
       header: 'סטטוס בקשה',

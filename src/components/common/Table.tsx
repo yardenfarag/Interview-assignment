@@ -39,7 +39,7 @@ export default function Table<T extends Record<string, any>>({
             {columns.map((column, index) => (
               <th
                 key={index}
-                className={`${styles['table-header']} ${column.headerClassName || ''}`.trim()}
+                className={`${styles['table-header']} ${column.headerClassName || ''} ${!column.header ? styles['header-icon-only'] : ''}`.trim()}
               >
                 <div className={styles['header-content']}>
                   {column.headerIcon && (
