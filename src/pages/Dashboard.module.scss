@@ -45,14 +45,37 @@
   }
 }
 
-.chat-icon {
-  margin-right: $spacing-xs;
-  color: $status-active;
-  font-size: 1rem;
+.icon-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $button-primary;
+    font-size: 0.6rem;
+    font-weight: 600;
+    
+    svg {
+      width: .8rem;
+      height: .8rem;
+      fill: $button-primary;
+    }
+  }
+  
+  .icon-inactive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    
+    svg {
+      width: .8rem;
+      height: .8rem;
+    }
+  }
 }
 
-.envelope-icon {
-  margin-right: $spacing-xs;
-  font-size: 1rem;
-}
 

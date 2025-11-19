@@ -20,6 +20,24 @@
       background-color: $white;
       border-bottom: 1px solid $border-color;
       white-space: nowrap;
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: $spacing-sm;
+      }
+
+      .header-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: .8rem;
+          height: .8rem;
+        }
+      }
     }
 
     .table-row {

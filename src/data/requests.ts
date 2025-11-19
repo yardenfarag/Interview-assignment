@@ -20,7 +20,7 @@ export const patientRequests: PatientRequest[] = [
     doctorId: 'doctor-001',
     sponsor: 'מכבי',
     notesCount: 1,
-    unreadMessages: 0,
+    unreadMessages: 1,
     status: 'בטיפול',
   },
   {
@@ -82,8 +82,8 @@ export const patientRequests: PatientRequest[] = [
     nurseId: 'nurse-002',
     doctorId: 'doctor-001',
     sponsor: 'מחקרים א',
-    notesCount: 0,
-    unreadMessages: 0,
+    notesCount: 3,
+    unreadMessages: 4,
     status: 'מושהה',
   },
 ];

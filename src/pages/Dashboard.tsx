@@ -8,6 +8,7 @@ import { getPersonnelName } from '../data/personnel';
 import { filterConfigs } from '../data/filters';
 import type { PatientRequest } from '../types/requests';
 import { getFilterCount } from '../utils/utils';
+import { ChatIcon, FilterIcon, MessageIcon } from '../components/Icons';
 import styles from './Dashboard.module.scss';
 
 export default function Dashboard() {
@@ -15,18 +16,22 @@ export default function Dashboard() {
     {
       header: 'שם מטופל',
       key: 'patientName',
+      headerIcon: <FilterIcon />,
     },
     {
       header: 'ת.ז',
       key: 'patientId',
+      headerIcon: <FilterIcon />,
     },
     {
       header: 'תרופה גנרית',
       value: (row) => row.medication.name,
+      headerIcon: <FilterIcon />,
     },
     {
       header: 'XXXXXX',
       value: () => '',
+      headerIcon: <FilterIcon />,
     },
     {
       header: 'פתיחת בקשה',
@@ -53,13 +58,14 @@ export default function Dashboard() {
       value: (row) => row.medication.expiry,
     },
     {
-      header: '💬',
+      header: '',
+      headerIcon: <ChatIcon />,
       value: (row) => (
         <span className={styles['icon-cell']}>
           {row.notesCount > 0 ? (
-            <span className={styles['chat-icon-active']}>💬</span>
+            <span className={styles['icon-active']}><ChatIcon />{row.notesCount}</span>
           ) : (
-            <span className={styles['chat-icon-inactive']}>💬</span>
+            <span className={styles['icon-inactive']}><ChatIcon /></span>
           )}
         </span>
       ),
@@ -67,23 +73,27 @@ export default function Dashboard() {
     {
       header: 'רופא/ה אחראי/ת',
       value: (row) => getPersonnelName(row.doctorId),
+      headerIcon: <FilterIcon />,
     },
     {
       header: 'אח/ות מתאמ/ת',
       value: (row) => getPersonnelName(row.nurseId),
+      headerIcon: <FilterIcon />,
     },
     {
       header: 'גורם מממן',
       key: 'sponsor',
+      headerIcon: <FilterIcon />,
     },
     {
-      header: '✉',
+      header: '',
+      headerIcon: <MessageIcon />,
       value: (row) => (
         <span className={styles['icon-cell']}>
           {row.unreadMessages > 0 ? (
-            <span className={styles['envelope-icon-active']}>✉</span>
+            <span className={styles['icon-active']}><MessageIcon /></span>
           ) : (
-            <span className={styles['envelope-icon-inactive']}>✉</span>
+            <span className={styles['icon-inactive']}><MessageIcon /></span>
           )}
         </span>
       ),
@@ -94,6 +104,7 @@ export default function Dashboard() {
     },
     {
       header: 'סטטוס בקשה',
+      headerIcon: <FilterIcon />,
       value: (row) => (
         <StatusDropdown
           value={row.status}

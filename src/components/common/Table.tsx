@@ -7,6 +7,7 @@ export interface TableColumn<T> {
   value?: (row: T) => ReactNode;
   className?: string;
   headerClassName?: string;
+  headerIcon?: ReactNode;
 }
 
 interface TableProps<T> {
@@ -40,7 +41,14 @@ export default function Table<T extends Record<string, any>>({
                 key={index}
                 className={`${styles['table-header']} ${column.headerClassName || ''}`.trim()}
               >
-                {column.header}
+                <div className={styles['header-content']}>
+                  {column.headerIcon && (
+                    <span className={styles['header-icon']}>
+                      {column.headerIcon}
+                    </span>
+                  )}
+                  <span>{column.header}</span>
+                </div>
               </th>
             ))}
           </tr>
