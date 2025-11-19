@@ -1,0 +1,47 @@
+@use '../../styles/variables.scss' as *;
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: $white;
+  border-radius: $radius-md;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+
+    .table-header {
+      padding: $spacing-md;
+      text-align: right;
+      font-weight: 400;
+      background-color: $white;
+      border-bottom: 1px solid $border-color;
+      white-space: nowrap;
+    }
+
+    .table-row {
+      border-bottom: 0.0625rem solid $border-color;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgba($button-primary, 0.05);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+      &:nth-child(odd) {
+        background-color: rgba($text-secondary, 0.05);
+      }
+
+      .table-cell {
+        padding: $spacing-md;
+        text-align: right;
+        color: $text-primary;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+

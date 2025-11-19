@@ -4,10 +4,47 @@
   width: 100%;
   min-height: 100vh;
   background-color: $background;
+
+  .content {
+    padding: $spacing-lg;
+    max-width: 100%;
+
+    .buttons-section {
+      display: flex;
+      gap: $spacing-md;
+      margin-bottom: $spacing-xl;
+    }
+
+    .filters-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-lg;
+      padding: $spacing-md 0;
+
+      .section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $button-primary;
+      }
+
+      .filters-chips {
+        display: flex;
+        gap: $spacing-md;
+        flex-wrap: wrap;
+      }
+    }
+  }
 }
 
-.content {
-  padding: $spacing-lg;
-  max-width: 100%;
+.chat-icon {
+  margin-right: $spacing-xs;
+  color: $status-active;
+  font-size: 1rem;
+}
+
+.envelope-icon {
+  margin-right: $spacing-xs;
+  font-size: 1rem;
 }
 
