@@ -1,0 +1,54 @@
+@import './styles/variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  direction: rtl; // RTL for Hebrew
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: $background-light;
+  color: $text-primary;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+// Reset default button styles
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+// Reset default link styles
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Reset default list styles
+ul, ol {
+  list-style: none;
+}
